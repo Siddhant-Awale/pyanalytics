@@ -2,14 +2,19 @@
 #-----------------------------
 #Data Structures
 #List - ordered collection of items, mutable(changeable) : [square ]
-list1 = [1,2,3,4,5,'a','Dhiraj',"Upadhyaya",True]  #list type of object with data
+list1 = [1,2,3,4,5,'a','Siddhant', 'Dhiraj',"Upadhyaya",True]  #list type of object with data
 list1  #print when through spyder
 type(list1)  #type of object
 print(list1)  #print when running complete file
 list1
+L1=list([1,23,4])
+sorted(L1)
 sorted([100000,5,3,2,4,5,324,43,4,4,3,23,434,53442,244,2245224,523])
 list2 = ['f','c','d','e',"f"]
 list2
+list2.sort()
+list2
+sorted(list2)
 list2.count('f')
 list2.count('d')
 len(list2)
@@ -69,6 +74,7 @@ set2
 set3 = {'Australia', 'South Africa', 'INDIA'}
 set3
 sorted(set3)
+set1.union(set2)
 set2.union(set3) #set2 | set3
 #A.intersection(B)
 set2.intersection(set3) #set2 & set
@@ -101,6 +107,7 @@ type(str1)
 print(str1)
 str2="Yash"
 str2.lower()
+str1.upper()
 dir(str)
 str2[1] = 'Z' #immutable , but new string can be assigned
 str2 = 'Dhiraj'
