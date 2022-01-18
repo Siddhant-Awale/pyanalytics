@@ -122,7 +122,6 @@ list1
 #for loop : indentations with colon : Run next 2 lines together
 for i in list1:
     print(i)
-
   
 for i in list1:    print(i , end ='\t')
 #print?  #help
@@ -253,7 +252,6 @@ sns.pairplot(iris)  #relationship diagrams
 
 
 #%% #Load Inbuilt Datasets
-
 #pip install pydataset
 from pydataset import data
 data('iris')
@@ -267,7 +265,7 @@ mtcars.data.head()
 
 #%%
 #Load from Excel/ CSV and export to
-data = mtcars.data
+data = mtcars.data         
 data.head(6)
 type(data)
 data.to_csv('mtcars.csv')
