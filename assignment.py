@@ -31,4 +31,40 @@ url='https://raw.githubusercontent.com/DUanalytics/datasets/master/csv/denco.csv
 df = pd.read_csv(url)
 #see properties of data
 df
-print(df)
+#print(df)
+df.shape
+df.columns
+df.dtypes
+df['region']=df['region'].astype('category') # converted to category
+#%%%%
+# find loyal customers
+df["custname"].value_counts().head(5) #most loyal customers are those whose frequency is more than 100
+df["custname"].value_counts().sort_values(ascending=True)[0:5]
+df["custname"].value_counts().sort_values(ascending=False)[0:5]
+
+df["custname"].value_counts().tail(100)
+#%%
+# customers who contribute more to their revenue
+df.groupby(['custname']).sum().sort_values(by="revenue")
+
+df.groupby('custname').aggregate({'revenue':np.sum}).sort_values(by='revenue',ascending=False).head(5).plot(kind='bar')
+#%%
+#part numbers based on revenue
+df.groupby('custname').aggregate({'revenue':np.sum}).sort_values(by='revenue',ascending=False).head(5).plot(kind='bar')
+
+df[['partnum','revenue']].groupby('partnum').aggregate([np.sum,'size','min','max']).sort_values(by='size') #error
+df[df['partnum'] == 715000000]
+ 
+#%%
+#parts numbers based on margins
+df[['partnum','margin']].groupby('partnum').aggregate([np.sum,'size','min','max'])
+df[['partnum','margin']]
+df[['partnum','margin']].groupby('partnum')
+df[['partnum','margin','revenue','region']].groupby(['partnum','region']).aggregate([np.sum,'size']) # gr
+
+#%%
+# region giving max revenue
+df[['margin','revenue','region']].groupby(['region']).aggregate([np.sum,'size'])
+df[['margin','region']].groupby(['region']).sum().sort_values(by='margin',ascending=False)
+
+df.groupby('region').aggregate({'margin':np.sum}).sort_values(by='margin',ascending=False).plot(kind='bar')
