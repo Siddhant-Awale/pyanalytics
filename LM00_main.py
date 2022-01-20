@@ -23,7 +23,7 @@ plt.title('Stock Index Price Vs Interest Rate', fontsize=14)
 plt.xlabel('Interest Rate', fontsize=14)
 plt.ylabel('Stock Index Price', fontsize=14)
 plt.grid(True)
-plt.show();
+plt.show()
 # linear relationship exists between the Stock_Index_Price and the Interest_Rate. Specifically, when interest rates go up, the stock index price also goes up:
     
 plt.scatter(df['Unemployment_Rate'], df['Stock_Index_Price'], color='green')
@@ -44,7 +44,7 @@ Y = df['Stock_Index_Price']
 X 
 Y
 # with sklearn : from sklearn import linear_model
-regr = linear_model.LinearRegression()
+regr = linear_model.LinearRegression() #empty model
 regr.fit(X, Y)
 regr.score(X, Y)  #R2 
 print('Intercept: \n', regr.intercept_)
